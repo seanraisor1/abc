@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maya Chen - Awaken Your Highest Self | Yogi & Life Coach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B7355;
+            --primary-dark: #6B5A45;
+            --light: #FAF8F5;
+            --beige: #F5EFE7;
+            --earth: #D4B5A0;
+            --text-dark: #2C2826;
+            --text-light: #5A524C;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(250, 248, 245, 0.9), rgba(245, 239, 231, 0.8)), 
+                        url('https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=1920&q=80') center/cover;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 115, 85, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .about-content p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .credentials {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 181, 160, 0.3);
+        }
+
+        .credentials li {
+            list-style: none;
+            padding: 5px 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .credentials li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-light);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .program-card {
+            background: var(--light);
+            padding: 50px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--earth));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .program-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--beige), var(--light));
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+
+        .testimonial-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Benefits */
+        .benefits {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .benefit {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .benefit:nth-child(1) { animation-delay: 0.1s; }
+        .benefit:nth-child(2) { animation-delay: 0.2s; }
+        .benefit:nth-child(3) { animation-delay: 0.3s; }
+        .benefit:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--beige), var(--light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .benefit h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .benefit p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(139, 115, 85, 0.05), rgba(212, 181, 160, 0.05)), 
+                        url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=1920&q=80') center/cover fixed;
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: var(--earth);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-links a {
+            color: var(--earth);
+            font-size: 20px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            color: var(--earth);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .programs-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-text {
+                font-size: 1.4rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">MAYA</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Awaken Your Highest Self</h1>
+                <p class="hero-subtitle">
+                    Discover profound inner peace and unlock your limitless potential through ancient wisdom 
+                    and modern transformation techniques
+                </p>
+                <a href="#contact" class="cta-button">Book a Free Discovery Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container fade-in">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80" alt="Maya Chen - Yogi and Life Coach">
+                </div>
+                <div class="about-content">
+                    <h2>Meet Maya Chen</h2>
+                    <p>
+                        After a decade in corporate leadership, I experienced a profound awakening during a 
+                        transformative retreat in the Himalayas. That moment of clarity revealed my true calling: 
+                        guiding souls toward their own inner light.
+                    </p>
+                    <p>
+                        Today, I blend ancient yogic wisdom with cutting-edge neuroscience and embodiment practices 
+                        to create deeply transformative experiences. My approach isn't about temporary fixes—it's 
+                        about fundamental shifts that ripple through every aspect of your existence.
+                    </p>
+                    <ul class="credentials">
+                        <li>500-Hour Certified Yoga Teacher (RYT-500)</li>
+                        <li>Certified Life & Mindfulness Coach (ICF)</li>
+                        <li>Reiki Master & Energy Healer</li>
+                        <li>10+ years guiding 1000+ transformations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Pathways to Transformation</h2>
+                <p>Choose the journey that resonates with your soul's calling</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-icon">🌟</div>
+                    <h3>1:1 Soul Coaching</h3>
+                    <p>
+                        Personalized guidance for deep inner work. Together, we'll uncover limiting patterns, 
+                        heal old wounds, and architect your most aligned life through weekly transformative sessions.
+                    </p>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-icon">🧘</div>
+                    <h3>Sacred Circle Classes</h3>
+                    <p>
+                        Join our intimate group sessions blending vinyasa flow, breathwork, and meditation. 
+                        Experience the power of collective energy while honoring your individual journey.
+                    </p>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-icon">🏔️</div>
+                    <h3>Immersive Retreats</h3>
+                    <p>
+                        Step away from the noise into sacred spaces designed for profound transformation. 
+                        Our retreats combine silence, nature, and intensive practice for breakthrough moments.
+                    </p>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-icon">💫</div>
+                    <h3>Digital Awakening</h3>
+                    <p>
+                        Access transformative teachings from anywhere. Our online program includes guided 
+                        meditations, video lessons, and a supportive community for your spiritual journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Transformations Speak</h2>
+                <p>Real stories from souls who've found their light</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">
+                        "Maya didn't just help me find peace—she helped me find myself. After years of anxiety 
+                        and disconnection, I finally feel aligned with my purpose. The tools she taught me are 
+                        life-changing."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sarah Mitchell">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">
+                        "The retreat was a turning point in my life. Maya creates such a safe, sacred space 
+                        for deep healing. I released trauma I'd carried for decades and discovered a joy I 
+                        didn't know was possible."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>James Chen</h4>
+                            <p>Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">
+                        "Working with Maya transformed my relationship with myself and others. Her unique blend 
+                        of wisdom and practical tools helped me break through patterns that therapy alone couldn't touch."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Amanda Torres">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amanda Torres</h4>
+                            <p>Healthcare Professional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Your Transformation Awaits</h2>
+                <p>Step into a life of profound alignment and purpose</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Crystal Clarity</h3>
+                    <p>Cut through confusion and connect with your soul's true direction and purpose</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⚖️</div>
+                    <h3>Inner Balance</h3>
+                    <p>Harmonize mind, body, and spirit to navigate life with grace and resilience</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🔥</div>
+                    <h3>Vital Energy</h3>
+                    <p>Awaken your life force and experience sustainable vitality in every moment</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🦋</div>
+                    <h3>Deep Transformation</h3>
+                    <p>Release what no longer serves you and emerge as your most authentic self</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote fade-in">
+                <p class="quote-text">
+                    "The journey inward is the most courageous adventure you'll ever take. 
+                    When you commit to your own awakening, you don't just change your life—you 
+                    become a beacon of light for everyone around you."
+                </p>
+                <p class="quote-author">— Maya Chen</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <div class="fade-in">
+                <h2>Start Your Journey Today</h2>
+                <p>
+                    Your transformation begins with a single step. Book your free discovery call 
+                    and let's explore how you can awaken to your highest potential.
+                </p>
+                <a href="#" class="cta-button">Begin Your Awakening</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">MAYA CHEN</div>
+                <div class="social-links">
+                    <a href="#">📧</a>
+                    <a href="#">📷</a>
+                    <a href="#">🔗</a>
+                    <a href="#">📱</a>
+                </div>
+                <div class="footer-contact">
+                    hello@mayachen.com | +1 (555) 123-4567
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.right = '0';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.background = 'white';
+            navLinks.style.padding = '20px';
+            navLinks.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        });
+
+        // Parallax effect for quote section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const quoteSection = document.querySelector('.quote-section');
+            const speed = 0.5;
+            
+            if (quoteSection) {
+                const yPos = -(scrolled * speed);
+                quoteSection.style.backgroundPosition = `center ${yPos}px`;
+            }
+        });
+
+        // Smooth hover effects for cards
+        document.querySelectorAll('.program-card, .testimonial').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
